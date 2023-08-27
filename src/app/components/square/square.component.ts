@@ -9,11 +9,20 @@ import { GameService } from 'src/app/services/game/game.service';
 export class SquareComponent implements OnInit {
   @Input() square : any;
 
-  private gameService = Inject(GameService);
+  gameService = Inject(GameService);
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changePlayer(): any {
+    this.gameService.isGameRunning = true;
+
+    if (this.gameService.isGameRunning && this.square.state === null){
+      this.square.state = this.gameService.activePlayer;
+      this.gameService.changePlayerTurn(this.square)
+    }
   }
 
 }
