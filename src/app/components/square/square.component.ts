@@ -9,9 +9,7 @@ import { GameService } from 'src/app/services/game/game.service';
 export class SquareComponent implements OnInit {
   @Input() square : any;
 
-  gameService = Inject(GameService);
-
-  constructor() { }
+  constructor(public gameService : GameService) { }
 
   ngOnInit(): void {
   }

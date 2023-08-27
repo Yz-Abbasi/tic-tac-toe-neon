@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class GameService {
 
-  private board : any = [];
+  public board : any[] = [];
   boardSize : number = 9;
   activePlayer : string = "X";
   turnCount : number = 0;
@@ -17,7 +17,7 @@ export class GameService {
     this.newgame();
   }
 
-  newgame(): void {
+  newgame(): any {
     this.activePlayer = "X";
     this.turnCount = 0;
     this.isGameRunning = false;
@@ -33,11 +33,11 @@ export class GameService {
       id:1,
       state : null
     });
-    return board;
     }
+    return board;
   }
 
-  get getBoard(): void{
+  get getBoard(){
     return this.board;
   }
 
@@ -57,7 +57,7 @@ export class GameService {
     if (this.win){
       this.win = true;
       this.isGameOver = false;
-      this.isGameOver = false;
+      this.isGameOver = true;
     }
   }
 
