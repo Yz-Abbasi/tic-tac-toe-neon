@@ -30,7 +30,7 @@ export class GameService {
     let board = [];
     for (let i  = 0; i < 9; i++){
       board.push({ 
-      id:1,
+      id:i,
       state : null
     });
     }
@@ -47,8 +47,13 @@ export class GameService {
 
   changePlayerTurn(clickedSquare : any): void {
     this.updateBoard(clickedSquare);
-    if (!this.isGameOver) this.activePlayer === "X" ? "O" : "X";
+    if (!this.isGameOver && this.activePlayer === "X"){
+      this.activePlayer = "O"
+    } else if (!this.isGameOver && this.activePlayer === "O"){
+      this.activePlayer = "X"
+    }
     this.turnCount++;
+    console.log(this.turnCount)
     this.isGameOver = this.isGameOver ? true : false;
   }
 
