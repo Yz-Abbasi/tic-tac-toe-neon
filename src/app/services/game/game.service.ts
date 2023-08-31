@@ -14,10 +14,10 @@ export class GameService {
   win : boolean = false;
 
   constructor() {
-    this.newgame();
+    this.newGame();
   }
 
-  newgame(): any {
+  newGame(): any {
     this.activePlayer = "X";
     this.turnCount = 0;
     this.isGameRunning = false;
@@ -59,9 +59,9 @@ export class GameService {
 
   updateBoard(clickedSquare : any): void {
     this.board[clickedSquare.id].state = clickedSquare.state;
-    if (this.win){
+    if (this.isWinner){
       this.win = true;
-      this.isGameOver = false;
+      this.isGameRunning = false;
       this.isGameOver = true;
     }
   }
@@ -90,7 +90,7 @@ export class GameService {
 
   }
 
-  checkRows(board : any, mode : any): any {
+  checkRows(board : any, mode : any): boolean {
     const 
       ROW = mode === "row" ? true : false,
       DIST = ROW ? 1 : 3,

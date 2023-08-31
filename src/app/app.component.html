@@ -2,9 +2,11 @@
     <div class="pt-20 header">
         <h1 class="text-cente text-6xl text-teal-400 font-extrabold">Tic <span class="text-orange-300">Tac</span> Toe</h1>
 
-        <h1 class="text-center text-orange-300 text-4xl mt-10 font-semibold"><span class=" text-cyan-400 underline underline-offset-3">{{ gameService.activePlayer }}</span>'S TURN</h1>
+        <h1 class="text-center text-orange-300 text-4xl mt-10 font-semibold" *ngIf="!gameService.win" [ngClass]="{'text-teal-200' : gameService.activePlayer == 'O'}"><span class=" text-cyan-400 underline underline-offset-3">{{ gameService.activePlayer }}</span>'S TURN</h1>
 
-        <h1 class="text-center text-purple-500 font-semibold mt-10 text-4xl"><span>{{ gameService.activePlayer }}</span> WON!</h1>
+        <h1 class="text-center text-purple-500 font-semibold mt-10 text-4xl" *ngIf="gameService.win"><span>{{ gameService.activePlayer }}</span> WON!</h1>
+
+        <button class="bg-purple-400 hover:bg-yellow-300 text-dark font-bold py-2 px-4 rounded mx-auto block mt-5" *ngIf="gameService.isGameOver" (click)="gameService.newGame()">Restart</button>
     </div>
 
     <app-board></app-board>
