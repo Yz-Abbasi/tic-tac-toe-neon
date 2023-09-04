@@ -12,6 +12,7 @@ export class GameService {
   isGameRunning : boolean = false;
   isGameOver : boolean = false;
   win : boolean = false;
+  isDraw : boolean = false;
 
   constructor() {
     this.newGame();
@@ -63,11 +64,16 @@ export class GameService {
       this.win = true;
       this.isGameRunning = false;
       this.isGameOver = true;
+    };
+    if (this.turnCount >= 8){
+      this.isDraw = true;
+      this.isGameRunning = false;
+      this.isGameOver = true;
     }
   }
 
   get gameOver(): boolean {
-    return this.turnCount > 8 || this.win ? true : false;
+    return this.turnCount >= 8 || this.win ? true : false;
   }
 
   get isWinner(): boolean {
