@@ -5,19 +5,20 @@ import { Injectable } from '@angular/core';
 })
 export class GameService {
 
-  private board : any = [];
+  public board : any[] = [];
   boardSize : number = 9;
   activePlayer : string = "X";
   turnCount : number = 0;
   isGameRunning : boolean = false;
   isGameOver : boolean = false;
   win : boolean = false;
+  isDraw : boolean = false;
 
   constructor() {
-    this.newgame();
+    this.newGame();
   }
 
-  newgame(): void {
+  newGame(): any {
     this.activePlayer = "X";
     this.turnCount = 0;
     this.isGameRunning = false;
@@ -30,14 +31,14 @@ export class GameService {
     let board = [];
     for (let i  = 0; i < 9; i++){
       board.push({ 
-      id:1,
+      id:i,
       state : null
     });
-    return board;
     }
+    return board;
   }
 
-  get getBoard(): void{
+  get getBoard(){
     return this.board;
   }
 
@@ -47,22 +48,32 @@ export class GameService {
 
   changePlayerTurn(clickedSquare : any): void {
     this.updateBoard(clickedSquare);
-    if (!this.isGameOver) this.activePlayer === "X" ? "O" : "X";
+    if (!this.isGameOver && this.activePlayer === "X"){
+      this.activePlayer = "O"
+    } else if (!this.isGameOver && this.activePlayer === "O"){
+      this.activePlayer = "X"
+    }
     this.turnCount++;
+    console.log(this.turnCount)
     this.isGameOver = this.isGameOver ? true : false;
   }
 
   updateBoard(clickedSquare : any): void {
     this.board[clickedSquare.id].state = clickedSquare.state;
-    if (this.win){
+    if (this.isWinner){
       this.win = true;
-      this.isGameOver = false;
-      this.isGameOver = false;
+      this.isGameRunning = false;
+      this.isGameOver = true;
+    };
+    if (this.turnCount >= 8){
+      this.isDraw = true;
+      this.isGameRunning = false;
+      this.isGameOver = true;
     }
   }
 
   get gameOver(): boolean {
-    return this.turnCount > 8 || this.win ? true : false;
+    return this.turnCount >= 8 || this.win ? true : false;
   }
 
   get isWinner(): boolean {
@@ -85,7 +96,7 @@ export class GameService {
 
   }
 
-  checkRows(board : any, mode : any): any {
+  checkRows(board : any, mode : any): boolean {
     const 
       ROW = mode === "row" ? true : false,
       DIST = ROW ? 1 : 3,
