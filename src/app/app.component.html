@@ -8,7 +8,9 @@
 
         <h1 class="text-center text-lime-400 font-semibold mt-10 text-4xl" *ngIf="gameService.isDraw">It's a draw!</h1>
 
-        <button class="border-none text-dark font-bold py-2 px-4 rounded mx-auto block mt-5 custom-btn" id="res-btn" *ngIf="gameService.isGameOver" (click)="gameService.newGame()">Restart</button>
+        <div class="res-container grid justify-center" *ngIf="gameService.isGameOver">
+            <button class="border-none text-dark font-bold py-2 px-4 rounded mx-auto block mt-5 custom-btn" id="res-btn" (click)="gameService.newGame()">Restart</button>
+        </div>
     </div>
 
     <app-board></app-board>

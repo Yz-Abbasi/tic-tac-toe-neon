@@ -24,6 +24,7 @@ export class GameService {
     this.isGameRunning = false;
     this.isGameOver = false;
     this.win = false;
+    this.isDraw = false;
     this.board = this.createBoard()
   }
 
