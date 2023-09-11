@@ -12,7 +12,7 @@ import { BoardComponent } from './components/board/board.component';
     BoardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
