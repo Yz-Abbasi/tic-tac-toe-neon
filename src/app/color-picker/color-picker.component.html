@@ -1,0 +1,8 @@
+<div class="color-wrapper">
+    <app-color-palette [hue]="hue" (color)="color = $event"></app-color-palette>
+    <app-color-slider class="color-slider" (color)="hue = $event"></app-color-slider>
+</div>
+<div class="input-wrapper">
+    <span class="text">{{ color }}</span>
+    <div class="color-div" [ngStyle]="{'background-color'  : color }"></div>
+</div>
