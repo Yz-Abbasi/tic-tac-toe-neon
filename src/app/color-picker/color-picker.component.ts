@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-color-picker',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ColorPickerComponent implements OnInit {
   public color : string;
   public hue : string
+
+  @Output() selectedColor : EventEmitter<string> = new EventEmitter(true)
 
   constructor() { }
 
