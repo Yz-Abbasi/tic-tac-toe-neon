@@ -9,6 +9,7 @@ import { hide } from '@popperjs/core';
 export class ColorSliderComponent implements AfterViewInit {
   @ViewChild("canvas") canvas : ElementRef<HTMLCanvasElement>;
   private ctx : CanvasRenderingContext2D;
+  ctxStrokeColor : any;
 
   @Output() color : EventEmitter<string> = new EventEmitter(); 
 
@@ -47,7 +48,7 @@ export class ColorSliderComponent implements AfterViewInit {
 
     if(this.selectedHeight){
       this.ctx.beginPath();
-      this.ctx.strokeStyle = "white";
+      this.ctx.strokeStyle = this.ctxStrokeColor;
       this.ctx.lineWidth = 3;
       this.ctx.rect(0, this.selectedHeight - 5, width, 10);
       this.ctx.stroke();
@@ -72,7 +73,9 @@ export class ColorSliderComponent implements AfterViewInit {
 
   emitColor(x : number, y : number){
     const rgbaColor = this.getColorAtPosition(x, y);
-    this.color.emit(rgbaColor)
+    console.log(rgbaColor);
+    this.ctxStrokeColor = rgbaColor;
+    this.color.emit(rgbaColor);
   }
 
   getColorAtPosition(x: number, y: number) {
@@ -81,6 +84,6 @@ export class ColorSliderComponent implements AfterViewInit {
   }
   
   @HostListener("window:mouseUp", ['$event']) onMuseUp(mouseEvent : MouseEvent){
-    this.isMouseMovingDown = false
+    this.isMouseMovingDown = false;
   }
 }
