@@ -48,7 +48,7 @@ export class ColorSliderComponent implements AfterViewInit {
     if(this.selectedHeight){
       this.ctx.beginPath();
       this.ctx.strokeStyle = "white";
-      this.ctx.lineWidth = 5;
+      this.ctx.lineWidth = 3;
       this.ctx.rect(0, this.selectedHeight - 5, width, 10);
       this.ctx.stroke();
       this.ctx.closePath();
