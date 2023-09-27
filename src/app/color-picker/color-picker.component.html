@@ -1,10 +1,11 @@
-<div class="flex-1">
+<div class="flex-1 flex-col p-0">
     <div class="color-wrapper">
-        <app-color-palette [hue]="hue" (color)="color = $event"></app-color-palette>
+        <app-color-palette class="color-palette" [hue]="hue" (color)="color = $event"></app-color-palette>
         <app-color-slider class="color-slider" (color)="hue = $event"></app-color-slider>
     </div>
     <div class="input-wrapper">
         <span class="text">{{ color }}</span>
         <div class="color-div" [ngStyle]="{'background-color'  : color }"></div>
     </div>
+    <button class="bg-slate-300 w-full mt-5 hover:bg-orange-400 hover:text-gray-200">Select</button>
 </div>
