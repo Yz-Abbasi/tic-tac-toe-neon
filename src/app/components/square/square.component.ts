@@ -9,6 +9,8 @@ import { GameService } from 'src/app/services/game/game.service';
 export class SquareComponent implements OnInit {
   @Input() square : any;
 
+  charColor : string;
+
   constructor(public gameService : GameService) { }
 
   ngOnInit(): void {
@@ -16,6 +18,8 @@ export class SquareComponent implements OnInit {
 
   changePlayer(): any {
     this.gameService.isGameRunning = true;
+    this.charColor = this.gameService.getCharColor();
+    console.log(this.charColor)
 
     if (this.gameService.isGameRunning && this.square.state === null){
       this.square.state = this.gameService.activePlayer;

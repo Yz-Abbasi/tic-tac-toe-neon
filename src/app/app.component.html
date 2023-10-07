@@ -20,7 +20,7 @@
                 <option value="Y">Y</option>
             </select>
         </div>
-        <app-color-picker class="color-picker bg-gradient-to-t from-gray-950 to-blue-950"></app-color-picker>
+        <app-color-picker class="color-picker bg-gradient-to-t from-gray-950 to-blue-950" (selectedColor)="selectedColor = $event"></app-color-picker>
     </div>
     <app-board></app-board>
     

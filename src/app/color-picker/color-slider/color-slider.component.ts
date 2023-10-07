@@ -73,7 +73,6 @@ export class ColorSliderComponent implements AfterViewInit {
 
   emitColor(x : number, y : number){
     const rgbaColor = this.getColorAtPosition(x, y);
-    console.log(rgbaColor);
     this.ctxStrokeColor = rgbaColor;
     this.color.emit(rgbaColor);
   }

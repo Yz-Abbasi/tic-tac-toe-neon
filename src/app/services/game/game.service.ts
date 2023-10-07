@@ -14,6 +14,8 @@ export class GameService {
   win : boolean = false;
   isDraw : boolean = false;
 
+  charColor : string;
+
   constructor() {
     this.newGame();
   }
@@ -116,6 +118,11 @@ export class GameService {
         }
     }
     return false;
+  }
+
+  getCharColor(): any {
+    // console.log(this.charColor)
+    return this.charColor;
   }
 
 }
