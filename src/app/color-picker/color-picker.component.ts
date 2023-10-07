@@ -9,6 +9,7 @@ export class ColorPickerComponent implements OnInit {
   public color : string;
   public hue : string
 
+
   @Output() selectedColor : EventEmitter<string> = new EventEmitter(true)
 
   constructor() { }

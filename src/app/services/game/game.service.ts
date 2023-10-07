@@ -98,7 +98,7 @@ export class GameService {
   }
 
   checkRows(board : any, mode : any): boolean {
-    const 
+    const
       ROW = mode === "row" ? true : false,
       DIST = ROW ? 1 : 3,
       INC = ROW ? 3 : 1,
