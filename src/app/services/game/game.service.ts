@@ -96,7 +96,6 @@ export class GameService {
               return true;
           }
       }
-
   }
 
   checkRows(board : any, mode : any): boolean {
