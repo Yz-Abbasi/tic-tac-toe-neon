@@ -9,8 +9,8 @@ HOW TO USE:
   
 __________________________
 
-Cool Features:
+Features:
 
- #1 It's a game so it's cool
+ #1 Customize your mark.
  
- #2 Will play cool Lo-Fi music for you to relax while playing alone or with your friend :D
+ #2 Play some hand-picked music while playing alone or with your friend.
